@@ -1,3 +1,4 @@
-export const  { 
-    API_URL
-} = process.env;
+export const {
+    API_URL,
+    STRAPI_URL
+    } = process.env;
