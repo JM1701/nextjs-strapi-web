@@ -3,8 +3,10 @@ import { getCoverImage, getGames } from "./services/videogames";
 import mdToHTML from './snarkdown';
 import { Pagination } from './components/Pagination';
 
-export default async function Home() {
-  const { data: games, pagination} = await getGames();
+export default async function Home({searchParams}) {
+  const { page } = searchParams;
+  console.log(searchParams);
+  const { data: games, pagination} = await getGames({page: page});
   
   return (
     <main className="flex min-h-screen flex-col items-center p-24">

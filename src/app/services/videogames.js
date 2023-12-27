@@ -1,7 +1,7 @@
 import { API_URL, STRAPI_URL } from "../config";
 
-export async function getGames() {
-    const res = await fetch(`${ API_URL }/videogames?populate[platforms][fields][0]=name&populate[cover][fields][0]=url&pagination[page]=1&pagination[pageSize]=1]`);
+export async function getGames( { page = 1 }) {
+    const res = await fetch(`${ API_URL }/videogames?populate[platforms][fields][0]=name&populate[cover][fields][0]=url&pagination[page]=${page}&pagination[pageSize]=1`);
     if (!res.ok) {
       throw new Error('Something went wrong');
     }
